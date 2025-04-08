@@ -1,0 +1,4 @@
+kafka:
+  clusters:
+    - name: localhost
+      bootstrapServers: kafka:9092
