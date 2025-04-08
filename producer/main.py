@@ -9,7 +9,7 @@ def main():
     for _ in range(10):
 
         payload = json.dumps({
-            'timestamp': datetime.datetime.now().isoformat()
+            'ts': datetime.datetime.now().isoformat()
         })
         print(f'Producing: {payload}')
         payload_bytes = payload.encode('utf-8')

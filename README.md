@@ -19,7 +19,24 @@ A personal study on streaming analytics technologies.
     to produce and consume messages to/from the kafka cluster
 
 
-3. Start the producer
+3. Start the flink cluster
+    ```
+    just flink
+    ```
+
+    Your browser will open to the flink UI, at http://localhost:8081. It may take a while to come up.
+
+
+4. Submit the flink job to the cluster
+    ```
+    just flink-submit
+    ```
+
+5. In kafka-ui, create 2 topics: 'foobar' and 'foobar_split'. Go to 'foobar_split', and watch messages live.
+
+6. Then run the producer with:
     ```
     just producer
     ```
+    
+    You should see the messages come in to 'foobar_split', with the transformations applied.
