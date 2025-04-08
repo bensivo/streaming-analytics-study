@@ -19,7 +19,7 @@ flink:
 flink-submit:
     podman run --network streaming-analytics-study_default -it -v ./flink-jobs:/flink-jobs flink flink run \
         -m flink-jobmanager:8081 \
-        -py /flink-jobs/main.py \
+        -py /flink-jobs/foobar-split.py \
         -j /opt/flink/lib/flink-sql-connector-kafka-3.3.0-1.19.jar
 
 down:
