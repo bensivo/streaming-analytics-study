@@ -1,6 +1,6 @@
 # streaming-analytics-study
 
-A personal study on streaming analytics technologies.
+A personal study on streaming analytics technologies, specifically Kafka and Flink.
 
 
 ## Running
@@ -15,8 +15,10 @@ A personal study on streaming analytics technologies.
     just kafka
     ```
 
-    Your browser will open to localhost:8080 with the kafka-ui webpage. You can use this webapp
-    to produce and consume messages to/from the kafka cluster
+    Your browser will open to http://localhost:8080 with the kafka-ui webpage. You can use this webapp
+    to produce and consume messages.
+
+    In kafka-ui, create 2 topics: 'foobar' and 'foobar_split'.
 
 
 3. Start the flink cluster
@@ -27,16 +29,20 @@ A personal study on streaming analytics technologies.
     Your browser will open to the flink UI, at http://localhost:8081. It may take a while to come up.
 
 
-4. Submit the flink job to the cluster
+4. Submit the foobar-split.py flink job to the cluster
     ```
     just flink-submit
     ```
-
-5. In kafka-ui, create 2 topics: 'foobar' and 'foobar_split'. Go to 'foobar_split', and watch messages live.
 
 6. Then run the producer with:
     ```
     just producer
     ```
+
+    The producer sends messages to the topic 'foobar' with a simple ISO8601 timestamp.
+
+
+    The flink job should read these messages, extract the components of the ts, and push
+    new messages to 'foobar_split'
     
-    You should see the messages come in to 'foobar_split', with the transformations applied.
+    Use kafka-ui to watch the messages come in on both topics.
