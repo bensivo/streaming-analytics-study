@@ -34,15 +34,20 @@ A personal study on streaming analytics technologies, specifically Kafka and Fli
     just flink-submit
     ```
 
+    You should see the job submitted in the flink ui. It should appear in 'Running Jobs'.
+
 6. Then run the producer with:
     ```
     just producer
     ```
 
-    The producer sends messages to the topic 'foobar' with a simple ISO8601 timestamp.
+    The producer sends messages to the topic 'foobar' with a simple ISO8601 timestamp. NOTE: it'll only send 10 messages.
 
+
+7. Watch messages on foobar_split.
 
     The flink job should read these messages, extract the components of the ts, and push
     new messages to 'foobar_split'
     
-    Use kafka-ui to watch the messages come in on both topics.
+    In the kafka-ui webapp, go to the 'foobar_split' topic, then 'messages', then switch the mode to "LIVE" to see messages come in in real-time.
+

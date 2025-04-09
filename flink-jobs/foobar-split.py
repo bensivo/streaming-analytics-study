@@ -1,4 +1,3 @@
-from pyflink.common import Row
 from pyflink.table import TableEnvironment, EnvironmentSettings
 
 env = TableEnvironment.create(EnvironmentSettings.in_streaming_mode())

@@ -1,3 +1,9 @@
+# A Custom flink docker image, which uses the same version of flink
+# as our local flink cluster, but also has an installation of Python3
+# with some basic flink libraries.
+#
+# This image is used to submit pyflink jobs to the flink cluster
+#
 FROM apache/flink:1.19.0-scala_2.12-java17
 
 RUN apt-get update && apt-get install -y \

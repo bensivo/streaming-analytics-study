@@ -13,7 +13,7 @@ producer:
     podman compose up producer
 
 flink:
-    podman compose up -u flink-jobmanager flink-taskmanager
+    podman compose up -d flink-jobmanager flink-taskmanager
     open http://localhost:8081
 
 flink-submit:
