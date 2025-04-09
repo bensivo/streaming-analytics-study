@@ -22,6 +22,17 @@ flink-submit:
         -py /flink-jobs/foobar-split.py \
         -j /opt/flink/lib/flink-sql-connector-kafka-3.3.0-1.19.jar
 
+flink-submit-sink:
+    podman run --network streaming-analytics-study_default -it -v ./flink-jobs:/flink-jobs flink flink run \
+        -m flink-jobmanager:8081 \
+        -py /flink-jobs/postgres-sink.py \
+        -j /opt/flink/lib/flink-sql-connector-kafka-3.3.0-1.19.jar \
+        -j /opt/flink/lib/flink-connector-jdbc-3.2.0-1.19.jar \
+        -j /opt/flink/lib/postgresql-42.7.5.jar 
+
+postgres:
+    podman compose up -d postgres
+
 down:
     podman compose down
 

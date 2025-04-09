@@ -66,3 +66,12 @@ services:
         heartbeat.timeout: 5000
  
 
+  postgres:
+    image: postgres:17.2-bullseye
+    container_name: postgres
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_USER: username
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: streaming_analytics_study

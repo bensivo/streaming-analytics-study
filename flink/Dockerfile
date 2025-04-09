@@ -35,3 +35,10 @@ RUN pip3 install --no-cache-dir \
 RUN curl -O https://repo.maven.apache.org/maven2/org/apache/flink/flink-sql-connector-kafka/3.3.0-1.19/flink-sql-connector-kafka-3.3.0-1.19.jar && \
     mv flink-sql-connector-kafka-3.3.0-1.19.jar ${FLINK_HOME}/lib/
 
+# Download JDBC connector + postgres driver
+RUN curl -O https://repo.maven.apache.org/maven2/org/apache/flink/flink-connector-jdbc/3.2.0-1.19/flink-connector-jdbc-3.2.0-1.19.jar && \
+    mv flink-connector-jdbc-3.2.0-1.19.jar ${FLINK_HOME}/lib/
+
+RUN curl -O https://jdbc.postgresql.org/download/postgresql-42.7.5.jar && \
+    mv postgresql-42.7.5.jar ${FLINK_HOME}/lib/
+
